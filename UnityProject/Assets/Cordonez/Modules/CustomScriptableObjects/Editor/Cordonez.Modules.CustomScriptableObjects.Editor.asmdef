@@ -1,0 +1,10 @@
+{
+    "name": "Cordonez.Modules.CustomScriptableObjects.Editor",
+    "references": [
+        "Cordonez.Modules.CustomScriptableObjects.Core"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [
+        "Editor"
+    ]
+}
