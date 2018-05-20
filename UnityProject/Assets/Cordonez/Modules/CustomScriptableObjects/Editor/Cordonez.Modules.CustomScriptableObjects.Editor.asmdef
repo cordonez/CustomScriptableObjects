@@ -3,8 +3,8 @@
     "references": [
         "Cordonez.Modules.CustomScriptableObjects.Core"
     ],
-    "includePlatforms": [],
-    "excludePlatforms": [
+    "includePlatforms": [
         "Editor"
-    ]
+    ],
+    "excludePlatforms": []
 }
