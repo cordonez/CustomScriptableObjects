@@ -1,5 +1,4 @@
-﻿using Cordonez.CustomScriptableObjects.Core;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Cordonez.Modules.CustomScriptableObjects.Core.Variables
 {
@@ -7,6 +6,5 @@ namespace Cordonez.Modules.CustomScriptableObjects.Core.Variables
 	[System.Serializable]
 	public class SO_float : CustomScriptableObject<float>
 	{
-
 	}
 }

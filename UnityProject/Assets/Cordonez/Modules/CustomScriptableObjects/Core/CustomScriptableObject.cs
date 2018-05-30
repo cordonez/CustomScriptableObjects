@@ -9,14 +9,10 @@ namespace Cordonez.Modules.CustomScriptableObjects.Core
 		[SerializeField]
 		private T m_value;
 
-		public virtual void SetValue(T _newValue)
+		public virtual T Value
 		{
-			m_value = _newValue;
-		}
-
-		public virtual T GetValue()
-		{
-			return m_value;
+			get { return m_value; }
+			set { m_value = value; }
 		}
 
 		public static implicit operator T(CustomScriptableObject<T> _value)

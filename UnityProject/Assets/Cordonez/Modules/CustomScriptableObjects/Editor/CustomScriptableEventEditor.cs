@@ -21,7 +21,12 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor
 				mytarget.Invoke();
 			}
 
-			var actions = typeof(CustomScriptableEvent).GetField("m_actions", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(mytarget);
+			FieldInfo field = typeof(CustomScriptableEvent).GetField("m_actions", BindingFlags.NonPublic | BindingFlags.Instance);
+			if (field == null)
+			{
+				return;
+			}
+			object actions = field.GetValue(mytarget);
 			if (actions != null)
 			{
 				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action)actions).GetInvocationList(), ref m_invocationListVisibility);
@@ -52,7 +57,12 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor
 				mytarget.Invoke(m_editorInvokeValue);
 			}
 
-			var actions = typeof(CustomScriptableEvent<T1>).GetField("m_actions", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(mytarget);
+			FieldInfo field = typeof(CustomScriptableEvent<T1>).GetField("m_actions", BindingFlags.NonPublic | BindingFlags.Instance);
+			if (field == null)
+			{
+				return;
+			}
+			object actions = field.GetValue(mytarget);
 			if (actions != null)
 			{
 				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1>)actions).GetInvocationList(), ref m_invocationListVisibility);
@@ -86,7 +96,12 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor
 				mytarget.Invoke(m_firstInvokeValue, m_secondInvokeValue);
 			}
 
-			var actions = typeof(CustomScriptableEvent<T1, T2>).GetField("m_actions", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(mytarget);
+			FieldInfo field = typeof(CustomScriptableEvent<T1, T2>).GetField("m_actions", BindingFlags.NonPublic | BindingFlags.Instance);
+			if (field == null)
+			{
+				return;
+			}
+			object actions = field.GetValue(mytarget);
 			if (actions != null)
 			{
 				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1, T2>)actions).GetInvocationList(), ref m_invocationListVisibility);
@@ -121,7 +136,12 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor
 				mytarget.Invoke(m_firstInvokeValue, m_secondInvokeValue, m_thirdInvokeValue);
 			}
 
-			var actions = typeof(CustomScriptableEvent<T1, T2, T3>).GetField("m_actions", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(mytarget);
+			FieldInfo field = typeof(CustomScriptableEvent<T1, T2, T3>).GetField("m_actions", BindingFlags.NonPublic | BindingFlags.Instance);
+			if (field == null)
+			{
+				return;
+			}
+			object actions = field.GetValue(mytarget);
 			if (actions != null)
 			{
 				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1, T2, T3>)actions).GetInvocationList(), ref m_invocationListVisibility);

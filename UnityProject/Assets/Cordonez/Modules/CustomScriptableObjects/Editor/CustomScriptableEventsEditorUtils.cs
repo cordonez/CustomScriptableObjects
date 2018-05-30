@@ -29,13 +29,18 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor
 			EditorGUILayout.LabelField("Callbacks: ", EditorStyles.boldLabel);
 			for (int i = 0; i < _invocationList.Length; i++)
 			{
-				_invocationListVisibility[i] = EditorGUILayout.Foldout(_invocationListVisibility[i],
-					_invocationList[i].Method.DeclaringType.Name + " --> " + _invocationList[i].Method.Name, true,
-					EditorStyles.helpBox);
-
-				if (_invocationListVisibility[i])
+				if (_invocationList[i].Method.DeclaringType != null)
 				{
-					DrawMethodInformation(_invocationList[i].Method);
+					_invocationListVisibility[i] = EditorGUILayout.Foldout(_invocationListVisibility[i], _invocationList[i].Method.DeclaringType.Name + " --> " + _invocationList[i].Method.Name, true, EditorStyles.helpBox);
+
+					if (_invocationListVisibility[i])
+					{
+						DrawMethodInformation(_invocationList[i].Method);
+					}
+				}
+				else
+				{
+					EditorGUILayout.LabelField("Null method declaring type.");
 				}
 			}
 		}

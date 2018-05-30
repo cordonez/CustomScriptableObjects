@@ -7,5 +7,6 @@
 		public const string VARIABLES = PATH + "Variables/";
 		public const string CUSTOM_EVENTS = PATH + "CustomEvents/";
 		public const string CUSTOM_VARIABLES = PATH + "CustomVariables/";
+		public const string COLLECTIONS = PATH + "Collections/";
 	}
 }

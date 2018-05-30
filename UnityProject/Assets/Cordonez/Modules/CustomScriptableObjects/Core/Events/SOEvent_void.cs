@@ -1,11 +1,9 @@
-﻿using Cordonez.Modules.CustomScriptableObjects.Core;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Cordonez.CustomScriptableObjects.Core.Events
+namespace Cordonez.Modules.CustomScriptableObjects.Core.Events
 {
 	[CreateAssetMenu(menuName = MenuPath.EVENTS + "SOEvent_void")]
 	public class SOEvent_void : CustomScriptableEvent
 	{
-
 	}
 }
