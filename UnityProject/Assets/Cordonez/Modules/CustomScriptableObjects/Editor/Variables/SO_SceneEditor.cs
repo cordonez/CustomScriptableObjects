@@ -9,18 +9,18 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor.Variables
 		public override void OnInspectorGUI()
 		{
 			SO_Scene picker = target as SO_Scene;
-			SceneAsset oldScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(picker.Value);
-
-			serializedObject.Update();
-
-			EditorGUI.BeginChangeCheck();
-			SceneAsset newScene = EditorGUILayout.ObjectField("scene", oldScene, typeof(SceneAsset), false) as SceneAsset;
-
-			if (EditorGUI.EndChangeCheck())
+			if (picker != null)
 			{
-				string newPath = AssetDatabase.GetAssetPath(newScene);
-				SerializedProperty scenePathProperty = serializedObject.FindProperty("m_value");
-				scenePathProperty.stringValue = newPath;
+				SceneAsset oldScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(picker.Value);
+				serializedObject.Update();
+				EditorGUI.BeginChangeCheck();
+				SceneAsset newScene = EditorGUILayout.ObjectField("scene", oldScene, typeof(SceneAsset), false) as SceneAsset;
+				if (EditorGUI.EndChangeCheck())
+				{
+					string newPath = AssetDatabase.GetAssetPath(newScene);
+					SerializedProperty scenePathProperty = serializedObject.FindProperty("m_value");
+					scenePathProperty.stringValue = newPath;
+				}
 			}
 
 			serializedObject.ApplyModifiedProperties();
