@@ -1,9 +1,7 @@
-﻿using Cordonez.Modules.CustomScriptableObjects.Core.Variables;
+﻿using Cordonez.BubbleInvasion.UI;
+using Cordonez.Modules.CustomScriptableObjects.Core.Variables;
 
-namespace Cordonez.BubbleInvasion.UI
+namespace Cordonez.Modules.CustomScriptableObjects.Utils
 {
-	public class SOIntToText : SOToText<SO_int, int>
-	{
-
-	}
+	public class SOIntToText : SOToText<SO_int, int> { }
 }

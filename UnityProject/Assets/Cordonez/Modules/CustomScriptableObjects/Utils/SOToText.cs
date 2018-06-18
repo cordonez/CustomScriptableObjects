@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Cordonez.BubbleInvasion.UI
+namespace Cordonez.Modules.CustomScriptableObjects.Utils
 {
 	[RequireComponent(typeof(Text))]
 	public abstract class SOToText<TSo, TSoType> : MonoBehaviour where TSo : CustomScriptableObject<TSoType>
