@@ -8,6 +8,7 @@
 	{
 		public override void OnInspectorGUI()
 		{
+			base.OnInspectorGUI();
 			SO_Scene picker = target as SO_Scene;
 			if (picker != null)
 			{

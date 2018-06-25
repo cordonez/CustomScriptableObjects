@@ -7,10 +7,10 @@
 	public abstract class CustomScriptableObject<T> : BaseCustomScriptableObject
 	{
 		[SerializeField]
-		private T m_value;
+		protected T m_value;
 
 		[SerializeField]
-		private T m_runtimeValue;
+		protected T m_runtimeValue;
 
 		private Action<T, T> m_onValueUpdated;
 
@@ -58,9 +58,16 @@
 			ResetToDefault();
 		}
 
-		public void ResetToDefault()
+		public virtual void ResetToDefault()
 		{
-			m_runtimeValue = m_value;
+			if (m_value.GetType().IsValueType)
+			{
+				m_runtimeValue = m_value;
+			}
+			else
+			{
+				throw new NotImplementedException();
+			}
 		}
 	}
 }
