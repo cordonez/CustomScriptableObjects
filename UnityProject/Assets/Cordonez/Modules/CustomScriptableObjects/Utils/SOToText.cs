@@ -1,9 +1,9 @@
-﻿using Cordonez.Modules.CustomScriptableObjects.Core;
-using UnityEngine;
-using UnityEngine.UI;
-
-namespace Cordonez.Modules.CustomScriptableObjects.Utils
+﻿namespace Cordonez.Modules.CustomScriptableObjects.Utils
 {
+	using Core;
+	using UnityEngine;
+	using UnityEngine.UI;
+
 	[RequireComponent(typeof(Text))]
 	public abstract class SOToText<TSo, TSoType> : MonoBehaviour where TSo : CustomScriptableObject<TSoType>
 	{

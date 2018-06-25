@@ -1,21 +1,20 @@
-﻿using System;
-using System.Reflection;
-using Cordonez.Modules.CustomScriptableObjects.Core;
-using UnityEditor;
-using UnityEngine;
-
-namespace Cordonez.Modules.CustomScriptableObjects.Editor
+﻿namespace Cordonez.Modules.CustomScriptableObjects.Editor
 {
+	using System;
+	using System.Reflection;
+	using Core;
+	using UnityEditor;
+	using UnityEngine;
+
 	[CustomEditor(typeof(CustomScriptableEvent), true)]
-	public class CustomScriptableEventEditor : UnityEditor.Editor
+	public class CustomScriptableEventEditor : Editor
 	{
 		private bool[] m_invocationListVisibility;
 
 		public override void OnInspectorGUI()
 		{
 			base.OnInspectorGUI();
-			CustomScriptableEvent mytarget = (CustomScriptableEvent)target;
-
+			CustomScriptableEvent mytarget = (CustomScriptableEvent) target;
 			if (GUILayout.Button("Invoke"))
 			{
 				mytarget.Invoke();
@@ -26,16 +25,17 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor
 			{
 				return;
 			}
+
 			object actions = field.GetValue(mytarget);
 			if (actions != null)
 			{
-				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action)actions).GetInvocationList(), ref m_invocationListVisibility);
+				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action) actions).GetInvocationList(), ref m_invocationListVisibility);
 			}
 		}
 	}
 
 	[CustomEditor(typeof(CustomScriptableEvent), true)]
-	public abstract class CustomScriptableEventEditor<T1> : UnityEditor.Editor
+	public abstract class CustomScriptableEventEditor<T1> : Editor
 	{
 		private bool[] m_invocationListVisibility;
 		private T1 m_editorInvokeValue;
@@ -43,15 +43,13 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor
 		public override void OnInspectorGUI()
 		{
 			base.OnInspectorGUI();
-			CustomScriptableEvent<T1> mytarget = (CustomScriptableEvent<T1>)target;
-
+			CustomScriptableEvent<T1> mytarget = (CustomScriptableEvent<T1>) target;
 			EditorGUILayout.BeginHorizontal();
 			{
 				EditorGUILayout.LabelField("Invoke value:");
 				DrawInvokeValue(ref m_editorInvokeValue);
 			}
 			EditorGUILayout.EndHorizontal();
-
 			if (GUILayout.Button("Invoke"))
 			{
 				mytarget.Invoke(m_editorInvokeValue);
@@ -62,10 +60,11 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor
 			{
 				return;
 			}
+
 			object actions = field.GetValue(mytarget);
 			if (actions != null)
 			{
-				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1>)actions).GetInvocationList(), ref m_invocationListVisibility);
+				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1>) actions).GetInvocationList(), ref m_invocationListVisibility);
 			}
 		}
 
@@ -73,7 +72,7 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor
 	}
 
 	[CustomEditor(typeof(CustomScriptableEvent), true)]
-	public abstract class CustomScriptableEventEditor<T1, T2> : UnityEditor.Editor
+	public abstract class CustomScriptableEventEditor<T1, T2> : Editor
 	{
 		private bool[] m_invocationListVisibility;
 		private T1 m_firstInvokeValue;
@@ -82,15 +81,13 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor
 		public override void OnInspectorGUI()
 		{
 			base.OnInspectorGUI();
-			CustomScriptableEvent<T1, T2> mytarget = (CustomScriptableEvent<T1, T2>)target;
-
+			CustomScriptableEvent<T1, T2> mytarget = (CustomScriptableEvent<T1, T2>) target;
 			EditorGUILayout.BeginHorizontal();
 			{
 				EditorGUILayout.LabelField("Invoke values:");
 				DrawInvokeValue(ref m_firstInvokeValue, ref m_secondInvokeValue);
 			}
 			EditorGUILayout.EndHorizontal();
-
 			if (GUILayout.Button("Invoke"))
 			{
 				mytarget.Invoke(m_firstInvokeValue, m_secondInvokeValue);
@@ -101,10 +98,11 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor
 			{
 				return;
 			}
+
 			object actions = field.GetValue(mytarget);
 			if (actions != null)
 			{
-				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1, T2>)actions).GetInvocationList(), ref m_invocationListVisibility);
+				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1, T2>) actions).GetInvocationList(), ref m_invocationListVisibility);
 			}
 		}
 
@@ -112,7 +110,7 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor
 	}
 
 	[CustomEditor(typeof(CustomScriptableEvent), true)]
-	public abstract class CustomScriptableEventEditor<T1, T2, T3> : UnityEditor.Editor
+	public abstract class CustomScriptableEventEditor<T1, T2, T3> : Editor
 	{
 		private bool[] m_invocationListVisibility;
 		private T1 m_firstInvokeValue;
@@ -122,15 +120,13 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor
 		public override void OnInspectorGUI()
 		{
 			base.OnInspectorGUI();
-			CustomScriptableEvent<T1, T2, T3> mytarget = (CustomScriptableEvent<T1, T2, T3>)target;
-
+			CustomScriptableEvent<T1, T2, T3> mytarget = (CustomScriptableEvent<T1, T2, T3>) target;
 			EditorGUILayout.BeginHorizontal();
 			{
 				EditorGUILayout.LabelField("Invoke values:");
 				DrawInvokeValue(ref m_firstInvokeValue, ref m_secondInvokeValue, ref m_thirdInvokeValue);
 			}
 			EditorGUILayout.EndHorizontal();
-
 			if (GUILayout.Button("Invoke"))
 			{
 				mytarget.Invoke(m_firstInvokeValue, m_secondInvokeValue, m_thirdInvokeValue);
@@ -141,10 +137,11 @@ namespace Cordonez.Modules.CustomScriptableObjects.Editor
 			{
 				return;
 			}
+
 			object actions = field.GetValue(mytarget);
 			if (actions != null)
 			{
-				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1, T2, T3>)actions).GetInvocationList(), ref m_invocationListVisibility);
+				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1, T2, T3>) actions).GetInvocationList(), ref m_invocationListVisibility);
 			}
 		}
 

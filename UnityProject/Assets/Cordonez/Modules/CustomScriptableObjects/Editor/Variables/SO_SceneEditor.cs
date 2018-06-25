@@ -1,10 +1,10 @@
-﻿using Cordonez.Modules.CustomScriptableObjects.Core.Variables;
-using UnityEditor;
-
-namespace Cordonez.Modules.CustomScriptableObjects.Editor.Variables
+﻿namespace Cordonez.Modules.CustomScriptableObjects.Editor.Variables
 {
+	using Core.Variables;
+	using UnityEditor;
+
 	[CustomEditor(typeof(SO_Scene), true)]
-	public class SO_SceneEditor : UnityEditor.Editor
+	public class SO_SceneEditor : Editor
 	{
 		public override void OnInspectorGUI()
 		{

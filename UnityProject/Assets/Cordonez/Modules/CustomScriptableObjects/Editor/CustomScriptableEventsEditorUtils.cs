@@ -1,10 +1,10 @@
-﻿using System;
-using System.Reflection;
-using UnityEditor;
-using UnityEngine;
-
-namespace Cordonez.Modules.CustomScriptableObjects.Editor
+﻿namespace Cordonez.Modules.CustomScriptableObjects.Editor
 {
+	using System;
+	using System.Reflection;
+	using UnityEditor;
+	using UnityEngine;
+
 	public static class CustomScriptableEventsEditorUtils
 	{
 		/// <summary>

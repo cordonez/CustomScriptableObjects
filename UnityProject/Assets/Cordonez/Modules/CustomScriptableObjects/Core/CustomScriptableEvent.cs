@@ -1,8 +1,8 @@
-﻿using System;
-using UnityEngine;
-
-namespace Cordonez.Modules.CustomScriptableObjects.Core
+﻿namespace Cordonez.Modules.CustomScriptableObjects.Core
 {
+	using System;
+	using UnityEngine;
+
 	public abstract class CustomScriptableEvent : BaseCustomScriptableObject
 	{
 		[SerializeField]

@@ -1,8 +1,8 @@
-﻿using Cordonez.Modules.CustomScriptableObjects.Core.Events;
-using UnityEditor;
-
-namespace Cordonez.Modules.CustomScriptableObjects.Editor.Events
+﻿namespace Cordonez.Modules.CustomScriptableObjects.Editor.Events
 {
+	using Core.Events;
+	using UnityEditor;
+
 	[CustomEditor(typeof(SOEvent_bool), true)]
 	public class SOEvent_boolEditor : CustomScriptableEventEditor<bool>
 	{

@@ -1,8 +1,8 @@
-﻿using Cordonez.Modules.CustomScriptableObjects.Core.Events;
-using UnityEditor;
-
-namespace Cordonez.Modules.CustomScriptableObjects.Editor.Events
+﻿namespace Cordonez.Modules.CustomScriptableObjects.Editor.Events
 {
+	using Core.Events;
+	using UnityEditor;
+
 	[CustomEditor(typeof(SOEvent_long), true)]
 	public class SOEvent_longEditor : CustomScriptableEventEditor<long>
 	{
