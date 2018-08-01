@@ -16,9 +16,6 @@
 		private void OnEnable()
 		{
 			hideFlags = FlagsOnEnable;
-			OnEnableImpl();
 		}
-
-		protected virtual void OnEnableImpl() { }
 	}
 }
