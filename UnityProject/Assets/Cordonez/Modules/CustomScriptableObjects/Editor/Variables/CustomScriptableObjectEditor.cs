@@ -21,9 +21,8 @@
 			object actions = field.GetValue(target);
 			if (actions != null)
 			{
-				object fieldInfos = actions.GetType().GetMethod("GetInvocationList").Invoke(actions, null);
-				Delegate[] delegates = fieldInfos as Delegate[];
-				CustomScriptableEventsEditorUtils.DrawInvocationList(delegates);
+				object delegateObjects = actions.GetType().GetMethod("GetInvocationList").Invoke(actions, null);
+				CustomScriptableEventsEditorUtils.DrawInvocationList(delegateObjects as Delegate[]);
 			}
 		}
 	}
