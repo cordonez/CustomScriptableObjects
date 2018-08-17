@@ -9,8 +9,6 @@
 	[CustomEditor(typeof(CustomScriptableEvent), true)]
 	public class CustomScriptableEventEditor : Editor
 	{
-		private bool[] m_invocationListVisibility;
-
 		public override void OnInspectorGUI()
 		{
 			base.OnInspectorGUI();
@@ -29,7 +27,7 @@
 			object actions = field.GetValue(mytarget);
 			if (actions != null)
 			{
-				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action) actions).GetInvocationList(), ref m_invocationListVisibility);
+				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action) actions).GetInvocationList());
 			}
 		}
 	}
@@ -37,7 +35,6 @@
 	[CustomEditor(typeof(CustomScriptableEvent), true)]
 	public abstract class CustomScriptableEventEditor<T1> : Editor
 	{
-		private bool[] m_invocationListVisibility;
 		private T1 m_editorInvokeValue;
 
 		public override void OnInspectorGUI()
@@ -64,7 +61,7 @@
 			object actions = field.GetValue(mytarget);
 			if (actions != null)
 			{
-				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1>) actions).GetInvocationList(), ref m_invocationListVisibility);
+				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1>) actions).GetInvocationList());
 			}
 		}
 
@@ -74,7 +71,6 @@
 	[CustomEditor(typeof(CustomScriptableEvent), true)]
 	public abstract class CustomScriptableEventEditor<T1, T2> : Editor
 	{
-		private bool[] m_invocationListVisibility;
 		private T1 m_firstInvokeValue;
 		private T2 m_secondInvokeValue;
 
@@ -102,7 +98,7 @@
 			object actions = field.GetValue(mytarget);
 			if (actions != null)
 			{
-				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1, T2>) actions).GetInvocationList(), ref m_invocationListVisibility);
+				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1, T2>) actions).GetInvocationList());
 			}
 		}
 
@@ -112,7 +108,6 @@
 	[CustomEditor(typeof(CustomScriptableEvent), true)]
 	public abstract class CustomScriptableEventEditor<T1, T2, T3> : Editor
 	{
-		private bool[] m_invocationListVisibility;
 		private T1 m_firstInvokeValue;
 		private T2 m_secondInvokeValue;
 		private T3 m_thirdInvokeValue;
@@ -141,7 +136,7 @@
 			object actions = field.GetValue(mytarget);
 			if (actions != null)
 			{
-				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1, T2, T3>) actions).GetInvocationList(), ref m_invocationListVisibility);
+				CustomScriptableEventsEditorUtils.DrawInvocationList(((Action<T1, T2, T3>) actions).GetInvocationList());
 			}
 		}
 

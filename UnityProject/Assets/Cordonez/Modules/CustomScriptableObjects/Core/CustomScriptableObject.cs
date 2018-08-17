@@ -9,7 +9,8 @@
 		[SerializeField]
 		protected T m_value;
 
-		private Action<T, T> m_onValueUpdated;
+		[SerializeField]
+		protected Action<T, T> m_onValueUpdated;
 
 		public virtual T Value
 		{
