@@ -22,7 +22,7 @@
 			{
 				if (_invocationList[i].Method.DeclaringType != null)
 				{
-					EditorGUILayout.SelectableLabel(_invocationList[i].Method.DeclaringType.Name + " --> " + _invocationList[i].Method.Name);
+					EditorGUILayout.TextField(_invocationList[i].Method.DeclaringType.Name + " --> " + _invocationList[i].Method.Name);
 				}
 				else
 				{
