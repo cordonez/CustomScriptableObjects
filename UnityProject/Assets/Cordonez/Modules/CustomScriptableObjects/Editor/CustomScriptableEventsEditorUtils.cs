@@ -1,9 +1,10 @@
-﻿namespace Cordonez.Modules.CustomScriptableObjects.Editor
+namespace Cordonez.Modules.CustomScriptableObjects.Editor
 {
 	using System;
 	using UnityEditor;
+	using UnityEngine;
 
-	public static class CustomScriptableEventsEditorUtils
+    public static class CustomScriptableEventsEditorUtils
 	{
 		/// <summary>
 		///     Shows on inspector a list of the delegates as a foldout that can be expandable to view more
@@ -22,8 +23,18 @@
 			{
 				if (_invocationList[i].Method.DeclaringType != null)
 				{
-					EditorGUILayout.TextField(_invocationList[i].Method.DeclaringType.Name + " --> " + _invocationList[i].Method.Name);
-				}
+				    if (_invocationList[i].Target == null)
+				    {
+				        EditorGUILayout.TextField(_invocationList[i].Method.DeclaringType.Name + " --> " + _invocationList[i].Method.Name);
+				    }
+				    else
+				    {
+				        if (GUILayout.Button(_invocationList[i].Method.DeclaringType.Name + " --> " + _invocationList[i].Method.Name))
+				        {
+				            Selection.activeGameObject = (_invocationList[i].Target as MonoBehaviour).gameObject;
+				        }
+				    }
+                                }
 				else
 				{
 					EditorGUILayout.LabelField("Null method declaring type.");
