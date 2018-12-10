@@ -1,4 +1,4 @@
-﻿namespace Cordonez.Modules.CustomScriptableObjects.Editor.Variables
+﻿namespace Cordonez.Modules.CustomScriptableObjects.Editor
 {
 	using System;
 	using System.Reflection;
@@ -6,7 +6,7 @@
 	using UnityEditor;
 
 	[CustomEditor(typeof(CustomScriptableObject<>), true)]
-	public class CustomScriptableObjectEditor : Editor
+	public class CustomScriptableObjectDrawer : Editor
 	{
 		public override void OnInspectorGUI()
 		{
@@ -63,7 +63,7 @@
 			if (actions != null)
 			{
 				object delegateObjects = actions.GetType().GetMethod("GetInvocationList").Invoke(actions, null);
-				CustomScriptableEventsEditorUtils.DrawInvocationList(delegateObjects as Delegate[]);
+				CustomScriptableEventDrawerUtils.DrawInvocationList(delegateObjects as Delegate[]);
 			}
 		}
 	}

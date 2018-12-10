@@ -1,5 +1,7 @@
 ﻿namespace Cordonez.Modules.CustomScriptableObjects.Core
 {
-	[System.Serializable]
+	using System;
+
+	[Serializable]
 	public class SOArray<T> : CustomScriptableObject<T[]> { }
 }

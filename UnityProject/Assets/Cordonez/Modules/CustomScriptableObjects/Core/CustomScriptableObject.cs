@@ -3,7 +3,6 @@
 	using System;
 	using System.Collections.Generic;
 	using UnityEngine;
-	using UnityEngine.Serialization;
 
 	[Serializable]
 	public abstract class CustomScriptableObject<T> : BaseCustomScriptableObject
@@ -11,11 +10,9 @@
 		[SerializeField]
 		protected Dictionary<MonoBehaviour, T> m_instanceValues = new Dictionary<MonoBehaviour, T>();
 
-		[FormerlySerializedAs("m_value")]
 		[SerializeField]
 		protected T m_value;
 
-		[FormerlySerializedAs("m_onValueUpdated")]
 		[SerializeField]
 		protected Action<T, T> m_onValueUpdated;
 
