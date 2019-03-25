@@ -1,0 +1,10 @@
+{
+    "packageId": "",
+    "resolvedPath": "",
+    "name": "com.cordonez.customscriptableobjects",
+    "displayName": "Custom Scriptable Objects",
+    "version": "1.0.0",
+    "unity": "2018.3",
+    "description": "Framework to use scriptable objects as variables and events.",
+    "keywords": ["scriptable", "objects"]
+}
