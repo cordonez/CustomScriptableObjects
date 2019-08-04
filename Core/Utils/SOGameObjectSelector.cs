@@ -8,7 +8,7 @@
 
 	public class SOGameObjectSelector : MonoBehaviour
 	{
-		public CollectionGameObject Collection;
+		public CollectionGameObject array;
 
 		[HideInInspector]
 		[SerializeField]
@@ -23,14 +23,14 @@
 
 		private void Awake()
 		{
-			if (Collection.Value.Length == 0)
+			if (array.Value.Count == 0)
 			{
 				Debug.LogWarning("Empty collection. Disabling Gameobject selector: " + name);
 				enabled = false;
 				return;
 			}
 
-			foreach (GameObject ship in Collection.Value)
+			foreach (GameObject ship in array.Value)
 			{
 				m_collection.Add(Instantiate(ship));
 				m_collection[m_collection.Count - 1].SetActive(false);
@@ -78,7 +78,7 @@
 			}
 
 			m_collection[m_indexSelected].SetActive(true);
-			Selected.Value = Collection.Value[m_indexSelected];
+			Selected.Value = array.Value[m_indexSelected];
 		}
 
 		private void OnDestroy()

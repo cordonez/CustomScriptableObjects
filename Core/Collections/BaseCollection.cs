@@ -1,7 +1,10 @@
-﻿namespace CustomScriptableObjects.Core.Collections
-{
-	using System;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
-	[Serializable]
-	public class BaseCollection<T> : BaseVariable<T[]> { }
+namespace CustomScriptableObjects.Core.Collections
+{
+    using System;
+
+    [Serializable]
+    public class BaseCollection<T> : BaseVariable<List<T>> { }
 }
